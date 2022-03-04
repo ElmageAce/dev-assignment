@@ -46,17 +46,18 @@
                 </form>
             </div>
 
-            <div class="grid gap-x-8 gap-y-4 grid-cols-1 md:grid-cols-2">
+            <div class="grid gap-x-8 gap-y-4 grid-cols-1">
 
                 @foreach($posts as $post)
-                    <a href="#" class="group block w-full rounded-lg p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-300 hover:ring-sky-300">
+                    <a href="{{ route('posts.show', $post->slug) }}" class="group block w-full rounded-lg p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-300 hover:ring-sky-300">
                         <div class="flex items-center space-x-3">
-                            <h3 class="text-gray-900 group-hover:text-white text-2xl leading-tight capitalize font-medium mb-2">{{ $post->title }}</h3>
+                            <h3 class="text-gray-900 group-hover:text-white text-2xl leading-tight text-capitalize font-medium mb-2">{{ $post->title }}</h3>
                         </div>
                         <p class="text-slate-500 group-hover:text-white text-sm">{{ \Illuminate\Support\Str::words($post->description, 20) }}</p>
-                        <p class="text-gray-400 group-hover:text-white text-xs">
-                            By <span class="text-gray-400 group-hover:text-white">{{ $post->user->name }}</span> <br>
-                            Published <span class="text-gray-400 group-hover:text-white">{{ \Illuminate\Support\Carbon::parse($post->published_date)->toDayDateTimeString() }}</span>
+                        <p class="text-gray-400 group-hover:text-white text-sm">
+                            Published <span class="text-gray-400 group-hover:text-white">{{ carbon_parse($post->publication_date)->toFormattedDateString() }}</span>
+                            <br>
+                            By <span class="text-gray-400 group-hover:text-white">{{ $post->user->name }}</span>
                         </p>
                     </a>
 

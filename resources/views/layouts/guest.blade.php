@@ -31,6 +31,16 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <footer class="bg-white shadow">
+            <div class="container w-full flex py-8">
+                <div class="w-full mx-auto flex flex-wrap">
+                    <div class="w-full text-center">
+                        &copy; {{ config('app.name') }} {{ date('Y') }}
+                    </div>
+                </div>
+            </div>
+        </footer>
     </body>
 
 </html>
