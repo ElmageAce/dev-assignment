@@ -22,3 +22,5 @@ Route::get('/', [BlogController::class, 'index'])->name('index');
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 });
+
+Route::get('{post:slug}', [BlogController::class, 'show'])->name('posts.show');
