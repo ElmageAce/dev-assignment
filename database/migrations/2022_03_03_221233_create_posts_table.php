@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
                 ->cascadeOnDelete();
             $table->string('title');
             $table->text('description');
-            $table->timestamp('publication_date')->nullable();
+            $table->timestamp('publication_date')->index();
             $table->string('slug')->unique();
             $table->timestamps();
         });

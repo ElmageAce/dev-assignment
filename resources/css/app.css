@@ -1,3 +1,15 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.gap-y-4 {
+    row-gap: 1rem;
+}
+
+.gap-x-8 {
+    column-gap: 2rem;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
