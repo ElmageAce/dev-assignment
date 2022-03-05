@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::get('/', [BlogController::class, 'index'])->name('index');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+    Route::resource('posts', PostController::class)->only(['index', 'create', 'store']);
 });
 
 Route::get('{post:slug}', [BlogController::class, 'show'])->name('posts.show');

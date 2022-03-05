@@ -30,4 +30,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'feed' => [
+        'endpoint' => env('FEED_SERVER', 'https://sq1-api-test.herokuapp.com/posts'),
+    ],
+
 ];

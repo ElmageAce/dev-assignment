@@ -32,10 +32,22 @@ class Post extends Model
     public static function paginatePosts(
         int $per_page,
         string $sort_by = 'id',
-        string $direction = 'desc'
+        string $direction = 'desc',
     ): Paginator
     {
         return self::with(['user'])
+            ->orderBy($sort_by, $direction)
+            ->simplePaginate($per_page);
+    }
+
+    public static function paginateUserPosts(
+        int $user_id,
+        int $per_page,
+        string $sort_by = 'id',
+        string $direction = 'desc',
+    ): Paginator
+    {
+        return self::query()->where('user_id', $user_id)
             ->orderBy($sort_by, $direction)
             ->simplePaginate($per_page);
     }
