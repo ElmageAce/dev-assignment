@@ -65,6 +65,13 @@ php artisan schedule:work
 php artisan posts:update
 ```
 
+## Testing
+
+- To test the application, run
+```shell
+php artisan test
+```
+
 ## Packages
 
 The project makes use of a few packages. The packages of note are listed below.
